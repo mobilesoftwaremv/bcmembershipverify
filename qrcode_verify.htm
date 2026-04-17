@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Member Verification</title>
+</head>
+<body>
+  <h2>Member Verification</h2>
+  <input type="text" id="idInput" placeholder="Enter Member ID">
+  <button onclick="verify()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    const database = {
+      "IMC-26-MLE-A7K9": {name: "John Doe", status: "Active"},
+      "IMC-26-MLE-B3X2": {name: "Jane Ali", status: "Expired"}
+    };
+
+    function verify() {
+      let id = document.getElementById("idInput").value;
+      let result = database[id];
+
+      if(result){
+        document.getElementById("result").innerHTML =
+          "Name: " + result.name + " | Status: " + result.status;
+      } else {
+        document.getElementById("result").innerHTML = "Invalid ID";
+      }
+    }
+  </script>
+
+</body>
+</html>
